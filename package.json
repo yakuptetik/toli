@@ -1,0 +1,26 @@
+{
+  "name": "toli-asistan",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "scrape": "tsx scripts/scrape-products.ts",
+    "verify": "tsx scripts/verify-products.ts",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "next": "^14.2.25",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

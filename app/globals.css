@@ -1,0 +1,39 @@
+:root {
+  --toli-red: #c41e24;
+  --toli-red-hover: #a0181d;
+  --toli-ink: #0f0f10;
+  --toli-ink-soft: #1c1c1f;
+  --toli-muted: #8b8b95;
+  --toli-muted-light: #b4b4bc;
+  --toli-bg: #0a0a0c;
+  --toli-surface: #141416;
+  --toli-white: #ffffff;
+  --toli-accent-soft: rgba(196, 30, 36, 0.15);
+  --radius: 16px;
+  --radius-lg: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  color: var(--toli-white);
+  background: var(--toli-bg);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

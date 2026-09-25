@@ -1,0 +1,8 @@
+node_modules
+.next
+.env.local
+.env*.local
+data/raw
+.vercel
+*.log
+.DS_Store
