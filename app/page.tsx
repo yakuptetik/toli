@@ -10,6 +10,54 @@ const DEMO_QUESTIONS = [
   { text: "Toli Games Monopoly fiyatı ne kadar?", trap: true },
 ];
 
+const FAYDA_CARDS = [
+  {
+    icon: "🔎",
+    title: "Gezinme yükünü kaldırır",
+    text: '"6 yaşında matematik seven çocuğum var" demek, normalde kategori → filtre → ürün → özellikler yolculuğu demek. Toli tek adımda öneri ve kart sunar.',
+  },
+  {
+    icon: "👨‍👩‍👧",
+    title: "Ebeveyn",
+    text: "Gece de yanıt alır; yaşa uygun oyunu menülerde kaybolmadan bulur. Önerilen ürünü karttan doğrular.",
+  },
+  {
+    icon: "🏫",
+    title: "Eğitimci",
+    text: "Sınıf ve etkinlik için beceri odaklı oyun seçer; ürünün eğitsel maddelerini sohbetten okur.",
+  },
+  {
+    icon: "📞",
+    title: "Tekrarlayan soruları azaltır",
+    text: 'Kargo, indirim, yaş uyarısı ve "hangi oyun" soruları sık tekrarlanır. Bunlar otomatik yanıtlanınca ekip ve mağaza desteği gerçek istisnalara odaklanır.',
+  },
+  {
+    icon: "🏪",
+    title: "Toli Games",
+    text: 'Tekrarlayan "hangi oyun" yükü azalır; hangi beceri / yaş kombinasyonunun arandığı görünür hale gelir.',
+  },
+  {
+    icon: "⚖️",
+    title: "Fiyat tutarlılığı",
+    text: "Kritik tutarlar katalogdan okunur; indirimli / liste fiyatı karışmaz.",
+  },
+  {
+    icon: "🎯",
+    title: "Tek doğru kaynak",
+    text: "Yanıtlar yalnızca toligames.com kataloğundan üretilir. Site güncellenince veri yeniden çekilir; ayrı bir içerik havuzu bakımı gerekmez.",
+  },
+  {
+    icon: "🛡️",
+    title: "Yanlış bilgi koruması",
+    text: "Katalogda olmayan ürün veya konuda tahmin yok; resmi mağazaya yönlendirme var.",
+  },
+  {
+    icon: "💸",
+    title: "Düşük işletme maliyeti",
+    text: "Veri JSON dosyasında; ağır veritabanı şart değil. Güncelleme: scrape + doğrulama komutları.",
+  },
+];
+
 export default function HomePage() {
   const catalog = getCatalog();
   const urunSayisi = catalog.meta.urun_sayisi;
@@ -138,48 +186,23 @@ export default function HomePage() {
         <section className={styles.block} id="fayda">
           <h2 className={styles.blockTitle}>Fayda</h2>
           <p className={styles.blockLead}>
-            Kısa yoldan doğru oyuna, doğru fiyat bilgisine.
+            Ürün bilgisi sitede var; asıl zorluk doğru oyuna ulaşmak.
+            Ebeveynler en çok yaşa uygunluk, beceri kazanımı ve fiyat
+            soruyor — bu bilgiler kategori sayfalarına ve uzun ürün
+            metinlerine dağılmış durumda. Toli bu dağınıklığı gizleyip tek
+            sohbet penceresine indiriyor.
           </p>
+          <p className={styles.faydaSub}>Kim ne kazanıyor?</p>
           <div className={styles.benefitGrid}>
-            <article className={styles.benefitCard}>
-              <h3>Ebeveyn</h3>
-              <p>Menülerde kaybolmadan yaşa uygun oyun bulur.</p>
-            </article>
-            <article className={styles.benefitCard}>
-              <h3>Doğru fiyat</h3>
-              <p>İndirimli ve liste fiyatı katalogdan okunur.</p>
-            </article>
-            <article className={styles.benefitCard}>
-              <h3>Güven</h3>
-              <p>Olmayan ürün veya konuda uydurma yapılmaz.</p>
-            </article>
-          </div>
-
-          <div className={styles.purposeBlock}>
-            <p className={styles.purposeIntro}>
-              Ürün bilgisi sitede var; asıl zorluk doğru oyuna ulaşmak.
-              Ebeveynler en çok yaşa uygunluk, beceri kazanımı ve fiyat
-              soruyor — bu bilgiler kategori sayfalarına ve uzun ürün
-              metinlerine dağılmış durumda. Toli bu dağınıklığı gizleyip tek
-              sohbet penceresine indiriyor.
-            </p>
-            <div className={styles.purposeList}>
-              <article className={styles.purposeItem}>
-                <span className={styles.purposeIcon} aria-hidden>
-                  🔎
+            {FAYDA_CARDS.map((card) => (
+              <article key={card.title} className={styles.benefitCard}>
+                <span className={styles.benefitIcon} aria-hidden>
+                  {card.icon}
                 </span>
-                <div>
-                  <h3 className={styles.purposeTitle}>
-                    Gezinme yükünü kaldırır
-                  </h3>
-                  <p className={styles.purposeText}>
-                    &quot;6 yaşında matematik seven çocuğum var&quot; demek,
-                    normalde kategori → filtre → ürün → özellikler yolculuğu
-                    demek. Toli tek adımda öneri ve kart sunar.
-                  </p>
-                </div>
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
               </article>
-            </div>
+            ))}
           </div>
         </section>
 
